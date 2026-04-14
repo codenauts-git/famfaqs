@@ -1,4 +1,4 @@
-# Barnachea Did You Know?
+# Did You Know? - Barnachea Edition
 
 A clean, minimal display of Barnachea family facts and trivia.
 
