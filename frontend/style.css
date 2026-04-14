@@ -7,7 +7,6 @@
     --panel-bg: rgba(255, 255, 255, 0.65);
     --panel-hover: rgba(0, 0, 0, 0.04);
     --panel-active: rgba(0, 0, 0, 0.06);
-    --swatch-bg: rgba(0, 0, 0, 0.08);
 }
 
 body.theme-calm {
@@ -19,7 +18,6 @@ body.theme-calm {
     --panel-bg: rgba(255, 255, 255, 0.65);
     --panel-hover: rgba(0, 0, 0, 0.04);
     --panel-active: rgba(0, 0, 0, 0.06);
-    --swatch-bg: rgba(0, 0, 0, 0.08);
 }
 
 body.theme-lavender {
@@ -28,10 +26,9 @@ body.theme-lavender {
     --text: #2F2A41;
     --muted: #E4E3E8;
 
-    --panel-bg: rgba(28, 18, 45, 0.78);
+    --panel-bg: rgba(71, 46, 116, 0.78);
     --panel-hover: rgba(255, 255, 255, 0.06);
     --panel-active: rgba(255, 255, 255, 0.08);
-    --swatch-bg: rgba(255, 255, 255, 0.08);
 }
 
 body.theme-night {
@@ -43,7 +40,6 @@ body.theme-night {
     --panel-bg: rgba(24, 22, 20, 0.78);
     --panel-hover: rgba(255, 255, 255, 0.06);
     --panel-active: rgba(255, 255, 255, 0.08);
-    --swatch-bg: rgba(255, 255, 255, 0.08);
 }
 
 body.theme-sage {
@@ -55,7 +51,6 @@ body.theme-sage {
     --panel-bg: rgba(255, 255, 255, 0.65);
     --panel-hover: rgba(0, 0, 0, 0.04);
     --panel-active: rgba(0, 0, 0, 0.06);
-    --swatch-bg: rgba(0, 0, 0, 0.08);
 }
 
 body {
@@ -213,27 +208,31 @@ h1 {
 }
 
 .theme-option[data-theme="calm"] {
-    --swatch-1: #3C332A;
-    --swatch-2: #6b625a;
-    --swatch-3: #f1ebe3;
+    --swatch-1: #3C332A; /* heading */
+    --swatch-2: #6b625a; /* muted */
+    --swatch-3: #3C332A; /* text */
+    --swatch-bg: #f1ebe3; /* bg */
 }
 
 .theme-option[data-theme="lavender"] {
-    --swatch-1: #cbb6ff;
-    --swatch-2: #6d5ca8;
+    --swatch-1: #E4E3E8;
+    --swatch-2: #E4E3E8;
     --swatch-3: #12081f;
+    --swatch-bg: #ADA6C2;
 }
 
 .theme-option[data-theme="night"] {
     --swatch-1: #f3ede6;
     --swatch-2: #3a342f;
-    --swatch-3: #141210;
+    --swatch-3: #f3ede6;
+    --swatch-bg: #141210;
 }
 
 .theme-option[data-theme="sage"] {
     --swatch-1: #2d332b;
     --swatch-2: #a7b5a0;
     --swatch-3: #F0E1C8;
+    --swatch-bg: #a7b5a0;
 }
 
 .theme-option {
