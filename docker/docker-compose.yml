@@ -1,7 +1,8 @@
+name: famfaqs
+
 services:
-  did-you-know:
+  web:
     image: nginx:alpine
-    container_name: did-you-know
     volumes:
       - "../frontend:/usr/share/nginx/html:ro"
     ports:
