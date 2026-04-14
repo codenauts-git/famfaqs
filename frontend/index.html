@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fun facts, family stats, and little-known Barnachea trivia." />
+    <title>Barnachea DYK</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/static/images/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon/favicon-16x16.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Styles and scripts -->
+    <link rel="stylesheet" href="/style.css" />
+    <script defer src="/app.js"></script>
+</head>
+
+<body>
+    <main class="container" aria-label="Barnachea Did You Know">
+        <header class="hero">
+            <h1>Did You Know?</h1>
+            <p class="edition">Barnachea Edition</p>
+        </header>
+
+        <section class="fact-wrap" aria-live="polite" aria-atomic="true">
+            <p id="fact" class="fact"></p>
+        </section>
+    </main>
+    <div class="bottom-bar" aria-label="Site controls">
+        <a href="https://github.com/nautxx" target="_blank" rel="noopener">
+            &lt;/&gt; github
+        </a>
+        <span class="divider">·</span>
+        <button type="button" id="theme-toggle">theme</button>
+    </div>
+    
+    <div class="theme-modal" id="theme-modal" hidden>
+        <div class="theme-modal-panel" role="dialog" aria-modal="true" aria-label="Choose theme">
+            <button type="button" data-theme="warm">warm</button>
+            <button type="button" data-theme="night">night</button>
+            <button type="button" data-theme="sage">sage</button>
+        </div>
+    </div>
+</body>
+
+</html>

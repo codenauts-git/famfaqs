@@ -1,0 +1,9 @@
+services:
+  did-you-know:
+    image: nginx:alpine
+    container_name: did-you-know
+    volumes:
+      - "../frontend:/usr/share/nginx/html:ro"
+    ports:
+      - "8089:80"
+    restart: unless-stopped
