@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "text": "The most common first initial in the family is A. There are currently 10 family members with names starting with A, including Arthur, Amante, Arnold, Adrian, Andrew, and Arnold. Can you name the rest?",
+      "text": "A is the most common first initial in the family, with 10 names beginning with it, including Arthur, Amante, Arnold, Adrian, and Andrew. Can you name the rest?",
       "type": "name",
       "tags": ["initials", "names"],
       "active": true,
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "text": "Most Barnachea's are based in California.",
+      "text": "Most Barnacheas in the archive are based in California.",
       "type": "location",
       "tags": ["california", "cities"],
       "active": true,
@@ -165,7 +165,7 @@
       "text": "Several Barnachea family members share birthdays in the same month but were born decades apart.",
       "type": "birthday",
       "tags": ["birthdays"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -173,7 +173,7 @@
       "text": "Some households in the family include both parents and children listed in the same address.",
       "type": "household",
       "tags": ["household"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -197,7 +197,7 @@
       "text": "There are multiple families within the Barnachea network with more than three children.",
       "type": "branch",
       "tags": ["children"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -213,7 +213,7 @@
       "text": "There are both very short and very long names across the family, showing a wide naming variety.",
       "type": "name",
       "tags": ["names"],
-      "active": true,
+      "active": false,
       "priority": 1
     },
     {
@@ -221,7 +221,7 @@
       "text": "Several Barnachea family members have moved between cities while still staying within California.",
       "type": "location",
       "tags": ["movement"],
-      "active": true,
+      "active": false,
       "priority": 1
     },
     {
@@ -229,7 +229,7 @@
       "text": "The family includes multiple married couples where both individuals are listed in the archive.",
       "type": "relationship",
       "tags": ["couples"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -237,7 +237,7 @@
       "text": "Some households in the family include three generations living at the same address.",
       "type": "household",
       "tags": ["multi-generation"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -245,7 +245,7 @@
       "text": "Several family members share the same first initial, making certain letters more common than others.",
       "type": "name",
       "tags": ["initials"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -253,7 +253,7 @@
       "text": "The Barnachea family includes both original family members and spouses who have joined over time.",
       "type": "relationship",
       "tags": ["spouse"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -261,7 +261,7 @@
       "text": "There are clusters of birthdays that fall within the same week across different years.",
       "type": "birthday",
       "tags": ["clusters"],
-      "active": true,
+      "active": false,
       "priority": 1
     },
     {
@@ -277,7 +277,7 @@
       "text": "The family has grown enough to include great-grandchildren across multiple branches.",
       "type": "generation",
       "tags": ["growth"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -285,7 +285,7 @@
       "text": "There are multiple overlapping generations where siblings, children, and grandchildren are all alive at once.",
       "type": "generation",
       "tags": ["overlap"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -293,7 +293,7 @@
       "text": "Some Barnachea family members share both last names and middle names through different branches.",
       "type": "name",
       "tags": ["names"],
-      "active": true,
+      "active": false,
       "priority": 1
     },
     {
@@ -301,7 +301,7 @@
       "text": "The family includes both long-established households and newly formed ones with young children.",
       "type": "household",
       "tags": ["households"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -309,7 +309,7 @@
       "text": "Arthur is currently the oldest member in the Barnachea family archive.",
       "type": "age",
       "tags": ["oldest"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -333,7 +333,7 @@
       "text": "Several Barnachea siblings were born consecutively throughout the 1950s, forming a tight generational group.",
       "type": "generation",
       "tags": ["1950s"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -341,7 +341,7 @@
       "text": "A large number of cousins were born between 1982 and 1984, creating one of the biggest age clusters in the family.",
       "type": "generation",
       "tags": ["1980s"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -349,7 +349,7 @@
       "text": "Kara, Jason, and Vincent are all part of the same early-1980s cousin cluster.",
       "type": "generation",
       "tags": ["cousins"],
-      "active": true,
+      "active": false,
       "priority": 3
     },
     {
@@ -357,7 +357,7 @@
       "text": "Multiple family members share the same June birthday month, making it one of the most common in the family.",
       "type": "birthday",
       "tags": ["june"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -373,7 +373,7 @@
       "text": "Some Barnachea cousins are close in age to their aunts and uncles due to overlapping generations.",
       "type": "generation",
       "tags": ["age-gap"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -381,7 +381,7 @@
       "text": "Several family households include both parents and children living at the same address.",
       "type": "household",
       "tags": ["household"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -397,7 +397,7 @@
       "text": "There are at least three active generations of Barnacheas represented in the current family archive.",
       "type": "generation",
       "tags": ["generations"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -405,7 +405,7 @@
       "text": "Several family members share the same first initial, with certain letters appearing far more frequently than others.",
       "type": "name",
       "tags": ["initials"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -413,7 +413,7 @@
       "text": "California is the primary location for most Barnachea family members in the archive.",
       "type": "location",
       "tags": ["california"],
-      "active": true,
+      "active": false,
       "priority": 3
     },
     {
@@ -429,7 +429,7 @@
       "text": "Some households in the family include up to three generations living within the same home.",
       "type": "household",
       "tags": ["multi-generation"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -437,7 +437,7 @@
       "text": "Several Barnachea family members share birthdays within days of each other across different years.",
       "type": "birthday",
       "tags": ["clusters"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -445,7 +445,7 @@
       "text": "The transition from grandchildren to great-grandchildren has already begun across multiple branches.",
       "type": "generation",
       "tags": ["growth"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -453,7 +453,7 @@
       "text": "The family includes both original Barnachea members and spouses who have joined across generations.",
       "type": "relationship",
       "tags": ["spouse"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -485,7 +485,7 @@
       "text": "The Barnachea family has grown to include great-grandchildren born as recently as the 2020s.",
       "type": "generation",
       "tags": ["recent"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -501,7 +501,7 @@
       "text": "Certain branches of the family show rapid growth across just one or two generations.",
       "type": "branch",
       "tags": ["growth"],
-      "active": true,
+      "active": false,
       "priority": 2
     },
     {
@@ -514,7 +514,7 @@
     },
     {
       "id": 700,
-      "text": "Geralds’s favorite Filipino dishes are kare kare, krispi pata, and beef sinigang.",
+      "text": "Gerald’s favorite Filipino dishes are kare-kare, crispy pata, and beef sinigang.",
       "type": "favorite",
       "tags": ["food", "favorite"],
       "active": true,
