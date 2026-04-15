@@ -5,9 +5,9 @@
     --text-color: #2f241c;
     --sub-color: #6b625a;
 
-    --surface-color: rgba(255, 255, 255, 0.65);
-    --surface-hover-color: rgba(0, 0, 0, 0.04);
-    --surface-active-color: rgba(0, 0, 0, 0.06);
+    --surface-color: var(--bg-color);
+    --surface-hover-color: var(--text-color);
+    --surface-active-color: var(--text-color);
     --surface-text-color: var(--bg-color);
 }
 
