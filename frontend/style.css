@@ -48,6 +48,23 @@ h1 {
     filter: blur(0px);
 }
 
+/* Landscape (default) */
+.fact-wrap {
+    min-height: 120px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Portrait (phones held upright) */
+@media (orientation: portrait) {
+    .fact-wrap {
+        min-height: 240px;
+        padding: 0 16px;
+    }
+}
+
 .bottom-bar {
     position: fixed;
     left: 50%;
