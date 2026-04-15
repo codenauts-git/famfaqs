@@ -1,56 +1,57 @@
+/*-- fallback theme colors --*/
 :root {
-    --bg-start: #f8f4ef;
-    --bg-end: #f1ebe3;
-    --text: #2f241c;
-    --text-muted: #6b625a;
+    --bg-color: #f8f4ef;
+    --bg-alt-color: #f1ebe3;
+    --text-color: #2f241c;
+    --sub-color: #6b625a;
 
-    --panel-bg: rgba(255, 255, 255, 0.65);
-    --panel-hover: rgba(0, 0, 0, 0.04);
-    --panel-active: rgba(0, 0, 0, 0.06);
+    --surface-color: rgba(255, 255, 255, 0.65);
+    --surface-hover-color: rgba(0, 0, 0, 0.04);
+    --surface-active-color: rgba(0, 0, 0, 0.06);
 }
 
 body.theme-calm {
-    --bg-start: #F0E1C8;
-    --bg-end: #e4d3b6;
-    --text: #3C332A;
-    --text-muted: #6b625a;
+    --bg-color: #F0E1C8;
+    --bg-alt-color: #e4d3b6;
+    --text-color: #3C332A;
+    --sub-color: #6b625a;
 
-    --panel-bg: rgba(255, 255, 255, 0.65);
-    --panel-hover: rgba(0, 0, 0, 0.04);
-    --panel-active: rgba(0, 0, 0, 0.06);
+    --surface-color: rgba(255, 255, 255, 0.65);
+    --surface-hover-color: rgba(0, 0, 0, 0.04);
+    --surface-active-color: rgba(0, 0, 0, 0.06);
 }
 
 body.theme-lavender {
-    --bg-start: #ADA6C2;
-    --bg-end: #9c90be;
-    --text: #2F2A41;
-    --text-muted: #E4E3E8;
+    --bg-color: #ADA6C2;
+    --bg-alt-color: #9c90be;
+    --text-color: #2F2A41;
+    --sub-color: #E4E3E8;
 
-    --panel-bg: rgba(71, 46, 116, 0.78);
-    --panel-hover: rgba(255, 255, 255, 0.06);
-    --panel-active: rgba(255, 255, 255, 0.08);
+    --surface-color: rgba(71, 46, 116, 0.78);
+    --surface-hover-color: rgba(255, 255, 255, 0.06);
+    --surface-active-color: rgba(255, 255, 255, 0.08);
 }
 
 body.theme-quiet {
-    --bg-start: #1f1c1a;
-    --bg-end: #141210;
-    --text: #f3ede6;
-    --text-muted: #b8aea4;
+    --bg-color: #1f1c1a;
+    --bg-alt-color: #141210;
+    --text-color: #f3ede6;
+    --sub-color: #b8aea4;
 
-    --panel-bg: rgba(24, 22, 20, 0.78);
-    --panel-hover: rgba(255, 255, 255, 0.06);
-    --panel-active: rgba(255, 255, 255, 0.08);
+    --surface-color: rgba(24, 22, 20, 0.78);
+    --surface-hover-color: rgba(255, 255, 255, 0.06);
+    --surface-active-color: rgba(255, 255, 255, 0.08);
 }
 
 body.theme-sage {
-    --bg-start: #f3f5ef;
-    --bg-end: #e8ece3;
-    --text: #2d332b;
-    --text-muted: #667061;
+    --bg-color: #f3f5ef;
+    --bg-alt-color: #e8ece3;
+    --text-color: #2d332b;
+    --sub-color: #667061;
 
-    --panel-bg: rgba(255, 255, 255, 0.65);
-    --panel-hover: rgba(0, 0, 0, 0.04);
-    --panel-active: rgba(0, 0, 0, 0.06);
+    --surface-color: rgba(255, 255, 255, 0.65);
+    --surface-hover-color: rgba(0, 0, 0, 0.04);
+    --surface-active-color: rgba(0, 0, 0, 0.06);
 }
 
 body {
@@ -59,8 +60,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at top, var(--bg-start), var(--bg-end));
-    color: var(--text);
+    background: radial-gradient(circle at top, var(--bg-color), var(--bg-alt-color));
+    color: var(--text-color);
     font-family: 'Inter', sans-serif;
     text-align: center;
 }
@@ -86,7 +87,7 @@ h1 {
     font-weight: 400;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--sub-color);
 }
 
 .fact {
@@ -97,7 +98,7 @@ h1 {
     font-weight: 300;
     letter-spacing: -0.01em;
     line-height: 1.5;
-    color: var(--text);
+    color: var(--text-color);
     opacity: 0;
     transition: opacity 1.4s ease;
 }
@@ -115,7 +116,7 @@ h1 {
     font-weight: 500;
     letter-spacing: 0.02em;
     line-height: 1;
-    color: var(--text-muted);
+    color: var(--sub-color);
     z-index: 1000;
     user-select: none;
 }
@@ -141,7 +142,7 @@ h1 {
 .bottom-bar button:hover,
 .bottom-bar a:hover {
     opacity: 0.9;
-    color: var(--text);
+    color: var(--text-color);
     transform: translateY(-1px);
 }
 
@@ -149,12 +150,12 @@ h1 {
 .bottom-bar a:focus-visible {
     outline: none;
     opacity: 1;
-    color: var(--text);
+    color: var(--text-color);
 }
 
 .bottom-bar button.is-active {
     opacity: 1;
-    color: var(--text);
+    color: var(--text-color);
 }
 
 #theme-toggle {
@@ -197,7 +198,7 @@ h1 {
     gap: 0.6rem;
     padding: 0.6rem 0.8rem;
     border-radius: 14px;
-    background: var(--panel-bg);
+    background: var(--surface-color);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
@@ -252,7 +253,7 @@ h1 {
     font-size: 0.85rem;
     font-weight: 500;
     text-align: left;
-    color: var(--text-muted);
+    color: var(--sub-color);
     opacity: 0.65;
     transition:
         opacity 0.18s ease,
@@ -263,14 +264,14 @@ h1 {
 
 .theme-option:hover {
     transform: translateY(-1px);
-    background: var(--panel-hover);
-    color: var(--text);
+    background: var(--surface-hover-color);
+    color: var(--text-color);
     opacity: 1;
 }
 
 .theme-option.is-active {
-    background: var(--panel-active);
-    color: var(--text);
+    background: var(--surface-active-color);
+    color: var(--text-color);
     opacity: 1;
 }
 
