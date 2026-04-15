@@ -514,6 +514,15 @@
       "priority": 3
     },
     {
+      "id": 501,
+      "template": "It has been {years} since Krystle and Jose got married.",
+      "type": "timeline",
+      "eventDate": "2011-12-14",
+      "tags": ["wedding", "countup"],
+      "active": true,
+      "priority": 3
+    },
+    {
       "id": 600,
       "text": "Jason’s favorite Filipino dish is sinigang—preferably loaded with extra tamarind and turned up extra spicy. He’s also a big fan of sisig for that chopped crispy pork explosion with a citrusy bite and an addictive fat-crunch balance.",
       "type": "favorite",
