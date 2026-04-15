@@ -84,7 +84,7 @@ const Carousel = {
 
   // Apply saved theme on load
   applySavedTheme() {
-    const savedTheme = localStorage.getItem("Carousel-theme") || "warm";
+    const savedTheme = localStorage.getItem("Carousel-theme") || "calm";
     this.setTheme(savedTheme);
   },
 
