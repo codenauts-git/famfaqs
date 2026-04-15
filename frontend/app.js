@@ -290,7 +290,10 @@ const Carousel = {
     return fact.priority || 1;
   },
 
-  // Set active theme and persist it
+  /**
+   * Set the active theme and persist it to localStorage.
+   * @param {Theme} themeName
+   */
   setTheme(themeName) {
     const themeClasses = Array.from(document.body.classList).filter(
       (className) => className.startsWith("theme-"),
@@ -312,7 +315,11 @@ const Carousel = {
     }
   },
 
-  // Pick one fact using weighted random selection
+  /**
+   * Select a fact using weighted randomness based on priority.
+   * @param {Fact[]} facts
+   * @returns {Fact|null}
+   */
   getWeightedRandomFact(facts) {
     const totalWeight = facts.reduce((sum, fact) => {
       return sum + this.getFactWeight(fact);
@@ -331,7 +338,10 @@ const Carousel = {
     return facts[facts.length - 1] || null;
   },
 
-  // Track recently shown facts and keep only the latest N items
+  /**
+   * Store recently shown fact IDs to avoid repetition.
+   * @param {string} factId
+   */
   rememberFact(factId) {
     this.state.recentFactIds.push(factId);
 
@@ -340,7 +350,10 @@ const Carousel = {
     }
   },
 
-  // Track recent fact types and keep only the latest N items
+  /**
+   * Track recently shown fact types to prevent repetition streaks.
+   * @param {string} type
+   */
   rememberType(type) {
     this.state.recentTypes.push(type);
 
@@ -349,7 +362,11 @@ const Carousel = {
     }
   },
 
-  // Check whether a type has appeared too many times in a row
+  /**
+   * Check if a fact type has been shown too many times consecutively.
+   * @param {string} type
+   * @returns {boolean}
+   */
   isTypeOverused(type) {
     if (this.state.recentTypes.length < this.config.maxSameTypeInRow) {
       return false;
@@ -358,7 +375,11 @@ const Carousel = {
     return this.state.recentTypes.every((recentType) => recentType === type);
   },
 
-  // Get next fact while avoiding recently shown facts and repeated types
+  /**
+   * Determine the next fact while avoiding recent duplicates
+   * and excessive repetition of the same type.
+   * @returns {Fact|null}
+   */
   getNextFact() {
     if (!this.state.facts.length) return null;
 
@@ -403,7 +424,10 @@ const Carousel = {
     this.rememberType(fact.type);
   },
 
-  // Render fallback message
+  /**
+   * Render a fallback message when no facts are available or on error.
+   * @param {string} message
+   */
   renderMessage(message) {
     this.elements.fact.textContent = message;
     this.elements.fact.style.opacity = "1";
@@ -462,7 +486,14 @@ const Carousel = {
     this.scheduleNextFact();
   },
 
-  // Calculate display time based on reading speed and punctuation
+  /**
+   * Calculate how long a fact should be displayed based on:
+   * - word count (reading speed)
+   * - punctuation pauses
+   * - minimum/maximum bounds
+   * @param {string} text
+   * @returns {number}
+   */
   getDisplayTime(text) {
     const words = text.trim().split(/\s+/).length;
     const punctuation = (text.match(/[.,;:!?—-]/g) || []).length;
