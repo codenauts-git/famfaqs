@@ -209,30 +209,30 @@ h1 {
 }
 
 .theme-option[data-theme="calm"] {
-    --swatch-1: #3C332A;
-    --swatch-2: #6b625a;
-    --swatch-3: #3C332A;
+    --swatch-text: #3C332A;
+    --swatch-sub: #6b625a;
+    --swatch-sub-alt: #3C332A;
     --swatch-bg: #f1ebe3;
 }
 
 .theme-option[data-theme="lavender"] {
-    --swatch-1: #E4E3E8;
-    --swatch-2: #E4E3E8;
-    --swatch-3: #12081f;
+    --swatch-text: #E4E3E8;
+    --swatch-sub: #E4E3E8;
+    --swatch-sub-alt: #12081f;
     --swatch-bg: #ADA6C2;
 }
 
 .theme-option[data-theme="quiet"] {
-    --swatch-1: #f3ede6;
-    --swatch-2: #b8aea4;
-    --swatch-3: #f3ede6;
+    --swatch-text: #f3ede6;
+    --swatch-sub: #b8aea4;
+    --swatch-sub-alt: #f3ede6;
     --swatch-bg: #1f1c1a;
 }
 
 .theme-option[data-theme="sage"] {
-    --swatch-1: #2d332b;
-    --swatch-2: #a7b5a0;
-    --swatch-3: #F0E1C8;
+    --swatch-text: #2d332b;
+    --swatch-sub: #a7b5a0;
+    --swatch-sub-alt: #F0E1C8;
     --swatch-bg: #a7b5a0;
 }
 
@@ -293,15 +293,15 @@ h1 {
 }
 
 .swatch i:nth-child(1) {
-    background: var(--swatch-1);
+    background: var(--swatch-text);
 }
 
 .swatch i:nth-child(2) {
-    background: var(--swatch-2);
+    background: var(--swatch-sub);
 }
 
 .swatch i:nth-child(3) {
-    background: var(--swatch-3);
+    background: var(--swatch-sub-alt);
 }
 
 body {
