@@ -469,7 +469,7 @@
       "text": "Some Barnachea relatives share both first and middle names across different generations.",
       "type": "name",
       "tags": ["names"],
-      "active": true,
+      "active": false,
       "priority": 1
     },
     {
@@ -482,9 +482,9 @@
     },
     {
       "id": 222,
-      "text": "Kara, Vincent, Ryan, Krystle, Arnold, Tricia, Adrian, and Victoria born in the 1980s now have children who are part of the next generation.",
-      "type": "generation",
-      "tags": ["lineage"],
+      "text": "Those born in the 1980s—Kara, Vincent, Ryan, Krystle, Arnold, Tricia, Adrian, and Victoria—now have children of their own, forming the next generation.",
+      "type": "timeline",
+      "tags": ["generation", "1980s", "family-growth"],
       "active": true,
       "priority": 3
     },
