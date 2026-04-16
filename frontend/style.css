@@ -146,7 +146,7 @@ h1 {
 .drawer-body {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 20px;
     margin-top: 8px;
     margin-left: 15px;
 }
@@ -154,14 +154,15 @@ h1 {
 .drawer-section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 4px;
 }
 
 .drawer-section-header {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: var(--sub-color);
+    color: var(--text-color);
+    margin-bottom: 4px;
 }
 
 .drawer-section-header i {
@@ -180,7 +181,10 @@ h1 {
 .drawer-section-content {
     padding-left: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .drawer-empty {
@@ -397,4 +401,44 @@ body {
         opacity 0.18s ease,
         transform 0.18s ease,
         background 0.4s ease;
+}
+
+.notification-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.notification-bar {
+    width: 4px;
+    border-radius: 2px;
+    background: var(--text-color);
+    opacity: 0.6;
+    flex-shrink: 0;
+    margin-top: 4px;
+    height: 100%;
+}
+
+#notifications-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.notification-type {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.notification-text {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--sub-color);
+    text-align: left;
 }

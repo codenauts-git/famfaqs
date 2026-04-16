@@ -13,6 +13,7 @@
  * App configuration
  * @typedef {Object} Config
  * @property {string} factsUrl
+ * @property {string} notificationsUrl
  * @property {number} fadeDurationMs
  * @property {number} basePauseMs
  * @property {number} recentFactsLimit
@@ -41,6 +42,7 @@ const Carousel = {
   // Core configuration for timing, data source, and messages
   config: {
     factsUrl: "/facts.json",
+    notificationsUrl: "/notifications.json",
     fadeDurationMs: 2000,
     basePauseMs: 600,
     recentFactsLimit: 5,
@@ -74,6 +76,7 @@ const Carousel = {
     this.applySavedTheme();
     this.bindEvents();
     this.loadFacts();
+    this.loadNotifications();
   },
 
   // Cache DOM references
@@ -535,6 +538,68 @@ const Carousel = {
     time += 3500;
 
     return Math.min(Math.max(time, 7000), 14000);
+  },
+  async loadNotifications() {
+    try {
+      const response = await fetch(
+        this.config.notificationsUrl,
+        this.config.fetchOptions,
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      const notifications = this.normalizeNotifications(
+        data.notifications || [],
+      );
+      this.renderNotifications(notifications);
+    } catch (error) {
+      console.error("Failed to load notifications:", error);
+      this.renderNotifications([]);
+    }
+  },
+
+  normalizeNotifications(notifications) {
+    return (notifications || []).filter((item) => {
+      return (
+        item &&
+        item.active !== false &&
+        typeof item.text === "string" &&
+        item.text.trim()
+      );
+    });
+  },
+  renderNotifications(notifications) {
+    const container = document.querySelector("#notifications-content");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    if (!notifications.length) {
+      container.innerHTML = `<p class="drawer-empty">Nothing to show</p>`;
+      return;
+    }
+
+    notifications.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "notification-row";
+
+      const type = item.type
+        ? item.type.charAt(0).toUpperCase() + item.type.slice(1)
+        : "Notification";
+
+      row.innerHTML = `
+        <div class="notification-bar"></div>
+        <div class="notification-content">
+          <span class="notification-type">${type}</span>
+          <p class="notification-text">${item.text}</p>
+        </div>
+      `;
+
+      container.appendChild(row);
+    });
   },
 };
 
