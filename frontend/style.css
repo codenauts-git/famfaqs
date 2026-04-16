@@ -223,7 +223,7 @@ h1 {
     gap: 4px;
     padding: 4px 6px;
     border-radius: 999px;
-    background: var(--swatch-bg);
+    background: var(--swatch-bg-color);
 }
 
 .swatch i {
@@ -235,15 +235,15 @@ h1 {
 }
 
 .swatch i:nth-child(1) {
-    background: var(--swatch-accent);
+    background: var(--swatch-accent-color);
 }
 
 .swatch i:nth-child(2) {
-    background: var(--swatch-text);
+    background: var(--swatch-text-color);
 }
 
 .swatch i:nth-child(3) {
-    background: var(--swatch-sub);
+    background: var(--swatch-sub-color);
 }
 
 body {

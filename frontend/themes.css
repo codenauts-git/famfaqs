@@ -104,50 +104,50 @@ body.theme-sage {
 }
 
 .theme-option[data-theme="calm"] {
-    --swatch-accent: #B48126;
-    --swatch-text: #382C21;
-    --swatch-sub: #847E78;
-    --swatch-bg: #F1E1C7;
+    --swatch-bg-color: #F1E1C7;
+    --swatch-accent-color: #B48126;
+    --swatch-text-color: #382C21;
+    --swatch-sub-color: #847E78;
 }
 
 .theme-option[data-theme="lavender"] {
-    --swatch-accent: #E4E3E8;
-    --swatch-text: #E4E3E8;
-    --swatch-sub: #2F2A41;
-    --swatch-bg: #ADA6C2;
+    --swatch-bg-color: #ADA6C2;
+    --swatch-accent-color: #E4E3E8;
+    --swatch-text-color: #E4E3E8;
+    --swatch-sub-color: #2F2A41;
 }
 
 .theme-option[data-theme="muted"] {
-    --swatch-accent: #C5B4E2;
-    --swatch-text: #939EAD;
-    --swatch-sub: #B1E3E3;
-    --swatch-bg: #525252;
+    --swatch-bg-color: #525252;
+    --swatch-accent-color: #C5B4E2;
+    --swatch-text-color: #939EAD;
+    --swatch-sub-color: #B1E3E3;
 }
 
 .theme-option[data-theme="paper"] {
-    --swatch-accent: #d9d9d9;
-    --swatch-text: #3a3a3a;
-    --swatch-sub: #9a9a9a;
-    --swatch-bg: #3a3a3a;
+    --swatch-bg-color: #3a3a3a;
+    --swatch-accent-color: #d9d9d9;
+    --swatch-text-color: #3a3a3a;
+    --swatch-sub-color: #9a9a9a;
 }
 
 .theme-option[data-theme="pastel"] {
-    --swatch-accent: #4a3f4a;
-    --swatch-text: #f5e6a8;
-    --swatch-sub: #a8d8e8;
-    --swatch-bg: #3f3440;
+    --swatch-bg-color: #3f3440;
+    --swatch-accent-color: #4a3f4a;
+    --swatch-text-color: #f5e6a8;
+    --swatch-sub-color: #a8d8e8;
 }
 
 .theme-option[data-theme="quiet"] {
-    --swatch-accent: #f3ede6;
-    --swatch-text: #f3ede6;
-    --swatch-sub: #b8aea4;
-    --swatch-bg: #1f1c1a;
+    --swatch-bg-color: #1f1c1a;
+    --swatch-accent-color: #f3ede6;
+    --swatch-text-color: #f3ede6;
+    --swatch-sub-color: #b8aea4;
 }
 
 .theme-option[data-theme="sage"] {
-    --swatch-accent: #F0E1C8;
-    --swatch-text: #2d332b;
-    --swatch-sub: #a7b5a0;
-    --swatch-bg: #a7b5a0;
+    --swatch-bg-color: #a7b5a0;
+    --swatch-accent-color: #F0E1C8;
+    --swatch-text-color: #2d332b;
+    --swatch-sub-color: #a7b5a0;
 }
