@@ -78,11 +78,11 @@ body.theme-pastel {
 }
 
 body.theme-quiet {
-    --bg-color: #1f1c1a;
-    --bg-alt-color: #141210;
-    --accent-color: #6b625a;
-    --text-color: #f3ede6;
-    --sub-color: #b8aea4;
+    --bg-color: #4A4A4D;
+    --bg-alt-color: #44444a;
+    --accent-color: #009DDD;
+    --text-color: #EBEBF5;
+    --sub-color: #A7A7AF;
 
     --surface-color: var(--bg-color);
     --surface-hover-color: var(--sub-color);
@@ -139,10 +139,10 @@ body.theme-sage {
 }
 
 .theme-option[data-theme="quiet"] {
-    --swatch-bg-color: #1f1c1a;
-    --swatch-accent-color: #f3ede6;
-    --swatch-text-color: #f3ede6;
-    --swatch-sub-color: #b8aea4;
+    --swatch-bg-color: #4A4A4D;
+    --swatch-accent-color: #009DDD;
+    --swatch-text-color: #EBEBF5;
+    --swatch-sub-color: #A7A7AF;
 }
 
 .theme-option[data-theme="sage"] {
