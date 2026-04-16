@@ -1,0 +1,10 @@
+{
+  "notifications": [
+    {
+      "id": 1,
+      "type": "announcement",
+      "text": "Mady will be graduating from Cerritos High School this upcoming May 28.",
+      "active": true
+    }
+  ]
+}
