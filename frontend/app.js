@@ -352,6 +352,11 @@ const Carousel = {
 
     container.innerHTML = "";
 
+    if (!notifications.length) {
+      container.innerHTML = `<p class="drawer-empty">Nothing to show.</p>`;
+      return;
+    }
+
     notifications.forEach((notification) => {
       const row = document.createElement("div");
       row.className = "notification-row";
