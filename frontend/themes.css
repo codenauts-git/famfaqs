@@ -165,7 +165,7 @@ body.theme-ube {
     --bg-color: #B3BAFF;
     --bg-alt-color: #adb5fb;
     --accent-color: #130F1A;
-    --text-color: #130F1A;
+    --text-color: #706C91;
     --sub-color: #130F1A;
 
     --surface-color: var(--bg-color);
@@ -254,6 +254,6 @@ body.theme-ube {
 .theme-option[data-theme="ube"] {
     --swatch-bg-color: #B3BAFF;
     --swatch-accent-color: #130F1A;
-    --swatch-text-color: #130F1A;
+    --swatch-text-color: #706C91;
     --swatch-sub-color: #130F1A;
 }
