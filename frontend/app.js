@@ -60,8 +60,8 @@ const Carousel = {
     maxSameTypeInRow: 2,
     fetchOptions: { cache: "no-store" },
     messages: {
-      empty: "No items available.",
-      error: "Could not load items.",
+      empty: "No content available.",
+      error: "Could not load content.",
     },
   },
 
