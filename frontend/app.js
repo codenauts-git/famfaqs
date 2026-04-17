@@ -588,7 +588,7 @@ const Carousel = {
 
       const type = item.type
         ? item.type.charAt(0).toUpperCase() + item.type.slice(1)
-        : "Nothing to show.";
+        : "Notification";
 
       row.innerHTML = `
         <div class="notification-bar"></div>
