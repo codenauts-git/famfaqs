@@ -364,7 +364,7 @@ const Carousel = {
         <div class="notification-bar"></div>
         <div class="notification-content">
           <span class="notification-type">${type}</span>
-          <p class="notification-text">${item.text}</p>
+          <p class="notification-text">${notification.text}</p>
         </div>
       `;
 
