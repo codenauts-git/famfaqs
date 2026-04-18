@@ -212,6 +212,7 @@ h1 {
     z-index: 1200;
     display: flex;
     justify-content: center;
+    gap: 1rem;
     width: 100%;
     pointer-events: none;
 }
@@ -221,8 +222,8 @@ h1 {
     display: inline-flex;
     align-items: center;
     gap: 0;
-    padding: 0.25rem;
-    border-radius: 0.8rem;
+    padding: 0.22rem;
+    border-radius: 0.6rem;
     background: var(--bg-alt-color);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -233,15 +234,15 @@ h1 {
     border: 0;
     background: transparent;
     margin: 0;
-    padding: 0.55rem 1.2rem;
-    border-radius: 0.65rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
     font: inherit;
     font-size: 0.88rem;
     font-weight: 500;
     letter-spacing: -0.01em;
     line-height: 1;
     color: var(--text-color);
-    opacity: 0.7;
+    opacity: 0.8;
     cursor: pointer;
     transition:
         color 0.1s ease,
@@ -256,9 +257,23 @@ h1 {
 }
 
 .control-option.is-active {
-    color: color-mix(in srgb, var(--accent-color) 75%, transparent);
+    color: color-mix(in srgb, var(--accent-color) 100%, transparent);
     opacity: 1;
     /* background: color-mix(in srgb, var(--bg-color) 24%, transparent); */
+}
+
+.control-option+.control-option {
+    position: relative;
+}
+
+.control-option+.control-option::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 22%;
+    bottom: 22%;
+    width: 1px;
+    background: color-mix(in srgb, var(--text-color) 10%, transparent);
 }
 
 .control-option:focus-visible {
