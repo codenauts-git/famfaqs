@@ -237,7 +237,7 @@ h1 {
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
     font: inherit;
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: -0.01em;
     line-height: 1;
@@ -264,16 +264,6 @@ h1 {
 
 .control-option+.control-option {
     position: relative;
-}
-
-.control-option+.control-option::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 22%;
-    bottom: 22%;
-    width: 1px;
-    background: color-mix(in srgb, var(--text-color) 10%, transparent);
 }
 
 .control-option:focus-visible {
