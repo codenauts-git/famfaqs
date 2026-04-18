@@ -124,7 +124,7 @@ body.theme-pastel {
 
 body.theme-quiet {
     --bg-color: #4A4A4D;
-    --bg-alt-color: #44444a;
+    --bg-alt-color: #3e3e41;
     --accent-color: #009DDD;
     --text-color: #EBEBF5;
     --sub-color: #A7A7AF;
@@ -163,7 +163,7 @@ body.theme-trackspec-dark {
 
 body.theme-ube {
     --bg-color: #B3BAFF;
-    --bg-alt-color: #adb5fb;
+    --bg-alt-color: #A3A7DF;
     --accent-color: #130F1A;
     --text-color: #706C91;
     --sub-color: #130F1A;
