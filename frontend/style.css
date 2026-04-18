@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at top, var(--bg-color), var(--bg-alt-color));
+    background: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-sans);
     text-align: center;
@@ -96,7 +96,7 @@ h1 {
     font: inherit;
     color: var(--text-color);
     opacity: 0.7;
-    transition: opacity 0.18s ease, color 0.18s ease;
+    transition: opacity 0.1s ease, color 0.1s ease;
 }
 
 .top-nav button:hover {
@@ -115,7 +115,7 @@ h1 {
     inset: 0;
     background: rgba(0, 0, 0, 0.25);
     opacity: 0;
-    transition: opacity 0.18s ease;
+    transition: opacity 0.1s ease;
 }
 
 .drawer-panel {
@@ -130,7 +130,7 @@ h1 {
     color: var(--surface-text-color);
     border-left: 3px solid rgba(0, 0, 0, 0.50);
     transform: translateX(100%);
-    transition: transform 0.18s ease;
+    transition: transform 0.1s ease;
     display: flex;
     flex-direction: column;
 }
@@ -204,6 +204,78 @@ h1 {
     margin: 8px 0 0;
 }
 
+.control-bar {
+    position: fixed;
+    top: 4.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1200;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    pointer-events: none;
+}
+
+.control-group {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    padding: 0.22rem;
+    border-radius: 0.6rem;
+    background: var(--bg-alt-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.control-option {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0em;
+    line-height: 1;
+    color: var(--text-color);
+    opacity: 0.8;
+    cursor: pointer;
+    transition:
+        color 0.1s ease,
+        opacity 0.1s ease,
+        background 0.1s ease,
+        transform 0.1s ease;
+}
+
+.control-option:hover {
+    color: var(--sub-color);
+    opacity: 1;
+}
+
+.control-option.is-active {
+    color: color-mix(in srgb, var(--accent-color) 100%, transparent);
+    opacity: 1;
+    /* background: color-mix(in srgb, var(--bg-color) 24%, transparent); */
+}
+
+.control-option+.control-option {
+    position: relative;
+}
+
+.control-option:focus-visible {
+    outline: none;
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+.control-option i {
+    margin-right: 0.4em;
+}
+
 .bottom-bar {
     position: fixed;
     left: 50%;
@@ -237,9 +309,9 @@ h1 {
     opacity: 0.55;
     cursor: pointer;
     transition:
-        opacity 0.18s ease,
-        color 0.18s ease,
-        transform 0.18s ease;
+        opacity 0.1s ease,
+        color 0.1s ease,
+        transform 0.1s ease;
 }
 
 .bottom-bar button:hover,
@@ -305,8 +377,7 @@ h1 {
     background: var(--surface-color);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-    border: 3px solid rgba(0, 0, 0, 0.500);
+    box-shadow: 0 0 0 .2em var(--bg-alt-color);
     transform: translateX(-50%) scale(0.96);
     opacity: 0;
     transition: opacity 0.15s ease, transform 0.15s ease;
@@ -334,9 +405,9 @@ h1 {
     color: var(--sub-color);
     opacity: 0.65;
     transition:
-        opacity 0.18s ease,
-        color 0.18s ease,
-        background 0.18s ease,
+        opacity 0.1s ease,
+        color 0.1s ease,
+        background 0.1s ease,
 }
 
 .theme-option:hover {
@@ -391,16 +462,16 @@ body {
 .bottom-bar,
 .theme-option {
     transition:
-        color 0.18s ease,
-        background 0.18s ease,
-        opacity 0.18s ease;
+        color 0.1s ease,
+        background 0.1s ease,
+        opacity 0.1s ease;
 }
 
 .theme-modal-panel {
     transition:
-        opacity 0.18s ease,
-        transform 0.18s ease,
-        background 0.4s ease;
+        opacity 0.1s ease,
+        transform 0.1s ease,
+        background 0.1s ease;
 }
 
 .notification-row {

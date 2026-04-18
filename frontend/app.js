@@ -71,6 +71,13 @@ const Carousel = {
     recentTypes: [],
     lastItemId: null,
     rotationTimer: null,
+    history: [],
+    historyIndex: -1,
+    speedMultiplier: 1,
+    touch: {
+      startX: 0,
+      endX: 0,
+    },
   },
 
   elements: {
@@ -82,6 +89,7 @@ const Carousel = {
   init() {
     this.cacheElements();
     this.applySavedTheme();
+    this.applySavedSpeed();
     this.bindEvents();
     this.loadItems();
     this.loadNotifications();
@@ -96,6 +104,30 @@ const Carousel = {
   applySavedTheme() {
     const savedTheme = localStorage.getItem("Carousel-theme") || "calm";
     this.setTheme(savedTheme);
+  },
+
+  applySavedSpeed() {
+    const saved = localStorage.getItem("Carousel-speed") || "normal";
+
+    this.setSpeed(saved);
+  },
+
+  setSpeed(speed) {
+    const map = {
+      slow: 1.25,
+
+      normal: 1,
+
+      fast: 0.75,
+    };
+
+    this.state.speedMultiplier = map[speed] || 1;
+
+    localStorage.setItem("Carousel-speed", speed);
+
+    document.querySelectorAll("[data-speed]").forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.speed === speed);
+    });
   },
 
   openThemeModal() {
@@ -134,11 +166,17 @@ const Carousel = {
 
   bindEvents() {
     document.body.addEventListener("click", (event) => {
+      const speedButton = event.target.closest("[data-speed]");
       const themeToggle = event.target.closest("#theme-toggle");
       const themeButton = event.target.closest("[data-theme]");
       const modalPanel = event.target.closest(".theme-modal-panel");
       const githubLink = event.target.closest(".bottom-bar a");
       const noticeToggle = event.target.closest("#notice-toggle");
+
+      if (speedButton) {
+        this.setSpeed(speedButton.dataset.speed);
+        return;
+      }
 
       if (githubLink) return;
 
@@ -167,10 +205,68 @@ const Carousel = {
     });
 
     document.addEventListener("keydown", (event) => {
+      const tag = document.activeElement?.tagName;
+      const isTyping =
+        tag === "INPUT" ||
+        tag === "TEXTAREA" ||
+        document.activeElement?.isContentEditable;
+
+      if (isTyping) return;
+
       if (event.key === "Escape") {
         this.closeThemeModal();
         this.closeDrawer();
+        return;
       }
+
+      if (event.key === " " || event.code === "Space") {
+        event.preventDefault();
+        if (!this.state.items.length) return;
+        this.showNextItem();
+        this.resetRotationTimer();
+        return;
+      }
+
+      if (event.key.toLowerCase() === "t") {
+        if (this.elements.themeModal && !this.elements.themeModal.hidden) {
+          this.closeThemeModal();
+        } else {
+          this.openThemeModal();
+        }
+      }
+
+      if (event.key.toLowerCase() === "n") {
+        const drawer = document.getElementById("notices-drawer");
+
+        if (!drawer) return;
+
+        if (drawer.hidden) {
+          this.openDrawer();
+        } else {
+          this.closeDrawer();
+        }
+      }
+
+      if (event.key === "ArrowLeft") {
+        this.goToPreviousItem();
+        this.resetRotationTimer();
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        this.goToNextFromHistory();
+        this.resetRotationTimer();
+        return;
+      }
+    });
+
+    document.addEventListener("touchstart", (e) => {
+      this.state.touch.startX = e.touches[0].clientX;
+    });
+
+    document.addEventListener("touchend", (e) => {
+      this.state.touch.endX = e.changedTouches[0].clientX;
+      this.handleSwipe();
     });
   },
 
@@ -278,6 +374,9 @@ const Carousel = {
     this.state.lastItemId = item.id;
     this.rememberItem(item.id);
     this.rememberType(item.type);
+
+    this.state.history = [item];
+    this.state.historyIndex = 0;
   },
 
   renderMessage(message) {
@@ -288,6 +387,13 @@ const Carousel = {
   showNextItem() {
     const item = this.getNextItem();
     if (!item || !this.elements.item) return;
+
+    this.state.history = this.state.history.slice(
+      0,
+      this.state.historyIndex + 1,
+    );
+    this.state.history.push(item);
+    this.state.historyIndex++;
 
     const el = this.elements.item;
     const duration = this.config.fadeDurationMs;
@@ -309,9 +415,41 @@ const Carousel = {
     }, duration);
   },
 
+  goToPreviousItem() {
+    if (this.state.historyIndex <= 0) return;
+
+    this.state.historyIndex--;
+    const item = this.state.history[this.state.historyIndex];
+
+    this.renderItemDirect(item);
+  },
+
+  goToNextFromHistory() {
+    if (this.state.historyIndex < this.state.history.length - 1) {
+      this.state.historyIndex++;
+      const item = this.state.history[this.state.historyIndex];
+      this.renderItemDirect(item);
+      return;
+    }
+
+    this.showNextItem();
+  },
+
+  renderItemDirect(item) {
+    const el = this.elements.item;
+    if (!el) return;
+
+    el.textContent = item.text;
+    el.style.opacity = "1";
+    el.style.filter = "blur(0px)";
+    this.state.lastItemId = item.id;
+  },
+
   scheduleNextItem() {
     const currentText = this.elements.item.textContent || "";
-    const delay = this.getDisplayTime(currentText) + this.config.basePauseMs;
+    const delay =
+      (this.getDisplayTime(currentText) + this.config.basePauseMs) *
+      this.state.speedMultiplier;
 
     this.state.rotationTimer = setTimeout(() => {
       this.showNextItem();
@@ -411,6 +549,21 @@ const Carousel = {
     const d = document.getElementById("notices-drawer");
     d.classList.remove("is-open");
     setTimeout(() => (d.hidden = true), 250);
+  },
+
+  handleSwipe() {
+    const threshold = 50;
+    const diff = this.state.touch.endX - this.state.touch.startX;
+
+    if (Math.abs(diff) < threshold) return;
+
+    if (diff > 0) {
+      this.goToPreviousItem();
+    } else {
+      this.goToNextFromHistory();
+    }
+
+    this.resetRotationTimer();
   },
 };
 

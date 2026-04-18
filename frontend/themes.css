@@ -19,8 +19,8 @@
 }
 
 body.theme-calm {
-    --bg-color: #F1E1C7;
-    --bg-alt-color: #eddcc0;
+    --bg-color: #F0E1C8;
+    --bg-alt-color: #e3d5bc;
     --accent-color: #B48126;
     --text-color: #382C21;
     --sub-color: #847E78;
@@ -33,7 +33,7 @@ body.theme-calm {
 
 body.theme-cheesecake {
     --bg-color: #FDF0D5;
-    --bg-alt-color: #faeccf;
+    --bg-alt-color: #F3E2BF;
     --accent-color: #8E2949;
     --text-color: #D91C81;
     --sub-color: #3A3335;
@@ -46,7 +46,7 @@ body.theme-cheesecake {
 
 body.theme-frozen-llama {
     --bg-color: #9BF2EA;
-    --bg-alt-color: #97f1e8;
+    --bg-alt-color: #80E6DE;
     --accent-color: #6D44A5;
     --text-color: #B690FD;
     --sub-color: #FFFFFF;
@@ -59,7 +59,7 @@ body.theme-frozen-llama {
 
 body.theme-lavender {
     --bg-color: #ADA6C2;
-    --bg-alt-color: #9c90be;
+    --bg-alt-color: #A19BB9;
     --accent-color: #E4E3E8;
     --text-color: #E4E3E8;
     --sub-color: #2F2A41;
@@ -72,7 +72,7 @@ body.theme-lavender {
 
 body.theme-muted {
     --bg-color: #525252;
-    --bg-alt-color: #4a4a4a;
+    --bg-alt-color: #494949;
     --accent-color: #C5B4E2;
     --text-color: #939EAD;
     --sub-color: #B1E3E3;
@@ -85,7 +85,7 @@ body.theme-muted {
 
 body.theme-olivia {
     --bg-color: #1C1B1D;
-    --bg-alt-color: #1c1b1d;
+    --bg-alt-color: #262223;
     --accent-color: #DEAF9D;
     --text-color: #4D3E3E;
     --sub-color: #F2EFED;
@@ -98,7 +98,7 @@ body.theme-olivia {
 
 body.theme-paper {
     --bg-color: #EEEEEE;
-    --bg-alt-color: #cfcfcf;
+    --bg-alt-color: #DDDDDD;
     --accent-color: #444444;
     --text-color: #B2B2B2;
     --sub-color: #444444;
@@ -111,7 +111,7 @@ body.theme-paper {
 
 body.theme-pastel {
     --bg-color: #E0B2BD;
-    --bg-alt-color: #e0aeba;
+    --bg-alt-color: #D29FAB;
     --accent-color: #FBF4B6;
     --text-color: #B4E8FF;
     --sub-color: #6D5C6F;
@@ -124,7 +124,7 @@ body.theme-pastel {
 
 body.theme-quiet {
     --bg-color: #4A4A4D;
-    --bg-alt-color: #44444a;
+    --bg-alt-color: #3e3e41;
     --accent-color: #009DDD;
     --text-color: #EBEBF5;
     --sub-color: #A7A7AF;
@@ -137,7 +137,7 @@ body.theme-quiet {
 
 body.theme-trackspec {
     --bg-color: #FFFFFF;
-    --bg-alt-color: #FFFFFF;
+    --bg-alt-color: #f1f1f1;
     --accent-color: #EB0028;
     --text-color: #2E2925;
     --sub-color: #A3A9AC;
@@ -150,7 +150,7 @@ body.theme-trackspec {
 
 body.theme-trackspec-dark {
     --bg-color: #2E2925;
-    --bg-alt-color: #2E2925;
+    --bg-alt-color: #3a342f;
     --accent-color: #EB0028;
     --text-color: #FFFFFF;
     --sub-color: #A3A9AC;
@@ -163,7 +163,7 @@ body.theme-trackspec-dark {
 
 body.theme-ube {
     --bg-color: #B3BAFF;
-    --bg-alt-color: #adb5fb;
+    --bg-alt-color: #A3A7DF;
     --accent-color: #130F1A;
     --text-color: #706C91;
     --sub-color: #130F1A;
