@@ -137,7 +137,7 @@ body.theme-quiet {
 
 body.theme-trackspec {
     --bg-color: #FFFFFF;
-    --bg-alt-color: #FFFFFF;
+    --bg-alt-color: #f1f1f1;
     --accent-color: #EB0028;
     --text-color: #2E2925;
     --sub-color: #A3A9AC;
@@ -150,7 +150,7 @@ body.theme-trackspec {
 
 body.theme-trackspec-dark {
     --bg-color: #2E2925;
-    --bg-alt-color: #2E2925;
+    --bg-alt-color: #3a342f;
     --accent-color: #EB0028;
     --text-color: #FFFFFF;
     --sub-color: #A3A9AC;
