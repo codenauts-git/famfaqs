@@ -18,6 +18,19 @@
     --surface-text-color: var(--bg-color);
 }
 
+body.theme-aguila {
+    --bg-color: #DED9CF;
+    --bg-alt-color: #FFFFFF;
+    --accent-color: #BA8C2D;
+    --text-color: #262626;
+    --sub-color: #BA8C2D;
+
+    --surface-color: var(--bg-color);
+    --surface-hover-color: var(--sub-color);
+    --surface-active-color: var(--sub-color);
+    --surface-text-color: var(--bg-color);
+}
+
 body.theme-calm {
     --bg-color: #F0E1C8;
     --bg-alt-color: #e3d5bc;
@@ -172,6 +185,13 @@ body.theme-ube {
     --surface-hover-color: var(--sub-color);
     --surface-active-color: var(--sub-color);
     --surface-text-color: var(--bg-color);
+}
+
+.theme-option[data-theme="aguila"] {
+    --swatch-bg-color: #DED9CF;
+    --swatch-accent-color: #BA8C2D;
+    --swatch-text-color: #262626;
+    --swatch-sub-color: #BA8C2D;
 }
 
 .theme-option[data-theme="calm"] {
