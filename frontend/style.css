@@ -173,6 +173,7 @@ h1 {
     gap: 1.25rem;
     font-family: var(--font-sans);
     font-size: 0.85rem;
+    color: var(--text-color);
 }
 
 .bottom-bar button,
