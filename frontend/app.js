@@ -212,7 +212,6 @@ const Carousel = {
     });
 
     this.state.activeSettingsGroup = group;
-    this.renderSettingsOptions(group);
 
     if (!container) {
       this.renderDesktopSettingsOptions();
@@ -321,9 +320,12 @@ const Carousel = {
     const container = this.elements.desktopSettingsOptions;
     if (!container) return;
 
-    container.innerHTML = this.getDesktopSettingsMarkup(
-      this.state.activeSettingsGroup,
-    );
+    const group = this.state.activeSettingsGroup;
+    const options = this.getSettingsOptions(group);
+
+    if (!options || options.length === 0) return;
+
+    container.innerHTML = this.getDesktopSettingsMarkup(group);
   },
 
   renderSettingsOptions(group) {
