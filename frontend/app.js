@@ -109,6 +109,9 @@ const Carousel = {
 
   init() {
     this.cacheElements();
+    Object.freeze(this.config.settingsGroups);
+    Object.freeze(this.config.settingsGroups.mode);
+    Object.freeze(this.config.settingsGroups.rate);
     this.applySavedTheme();
     this.applySavedSpeed();
     this.applySavedMode();
@@ -989,13 +992,11 @@ const Carousel = {
     container.style.transition = "none";
     container.style.width = "";
     container.style.opacity = "";
+
     this.renderDesktopSettingsOptions();
 
     requestAnimationFrame(() => {
-      const nextWidth = this.measureDesktopSettingsWidth(
-        this.state.activeSettingsGroup,
-      );
-      container.style.width = `${nextWidth}px`;
+      container.style.width = `${container.scrollWidth}px`;
       container.style.transition = "";
     });
   },
