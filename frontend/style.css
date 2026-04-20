@@ -16,8 +16,7 @@ body {
     max-width: 1300px;
     margin: 0 auto;
     padding:
-        calc(24px + env(safe-area-inset-top, 0px))
-        24px calc(32px + env(safe-area-inset-bottom, 0px));
+        calc(24px + env(safe-area-inset-top, 0px)) 24px calc(32px + env(safe-area-inset-bottom, 0px));
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -59,7 +58,7 @@ h1 {
     color: var(--text-color);
     opacity: 0;
     transition: opacity 2s ease;
-    filter: blur(0px);
+    filter: blur(0);
 }
 
 .item-wrap {
@@ -73,10 +72,9 @@ h1 {
 .top-row {
     width: 100%;
     max-width: 1300px;
-    margin: 0 auto 16px;
+    margin: 0 auto 20px;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 20px;
     gap: 12px;
 }
 
@@ -90,7 +88,9 @@ h1 {
     color: var(--text-color);
     opacity: 0.7;
     cursor: pointer;
-    transition: opacity 0.1s ease, color 0.1s ease;
+    transition:
+        opacity 0.1s ease,
+        color 0.1s ease;
 }
 
 .top-row-button:hover {
@@ -107,13 +107,11 @@ h1 {
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 500;
-    /* letter-spacing: 0em; */
 }
 
 .control-group {
     display: inline-flex;
     align-items: center;
-    /* gap: 0; */
     padding: 0.22rem;
     border-radius: 0.6rem;
     background: var(--bg-alt-color);
@@ -149,10 +147,6 @@ h1 {
     color: color-mix(in srgb, var(--accent-color) 100%, transparent);
     opacity: 1;
 }
-
-/* .control-option+.control-option {
-    position: relative;
-} */
 
 .control-option:focus-visible {
     outline: none;
@@ -227,20 +221,20 @@ h1 {
 }
 
 .drawer-panel {
-    font-family: var(--font-sans);
     position: absolute;
     right: 0;
     top: 0;
-    padding: 12px 20px 20px;
-    height: 100%;
     width: 320px;
+    height: 100%;
+    padding: 12px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
     background: var(--surface-color);
     color: var(--surface-text-color);
     border-left: 3px solid var(--bg-alt-color);
     transform: translateX(100%);
     transition: transform 0.1s ease;
-    display: flex;
-    flex-direction: column;
 }
 
 .drawer.is-open .drawer-overlay {
@@ -386,7 +380,6 @@ h1 {
 }
 
 .theme-modal-panel {
-    color: var(--surface-text-color);
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -395,12 +388,16 @@ h1 {
     padding: 0;
     border-radius: 12px;
     background: var(--surface-color);
+    color: var(--surface-text-color);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 0 0 .2em var(--bg-alt-color);
+    box-shadow: 0 0 0 0.2em var(--bg-alt-color);
     transform: translateX(-50%) scale(0.96);
     opacity: 0;
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition:
+        opacity 0.1s ease,
+        transform 0.1s ease,
+        background 0.1s ease;
     pointer-events: auto;
     overflow: hidden;
 }
@@ -427,7 +424,7 @@ h1 {
     transition:
         opacity 0.1s ease,
         color 0.1s ease,
-        background 0.1s ease,
+        background 0.1s ease;
 }
 
 .theme-option:hover {
@@ -481,19 +478,12 @@ h1 {
         opacity 0.1s ease;
 }
 
-.theme-modal-panel {
-    transition:
-        opacity 0.1s ease,
-        transform 0.1s ease,
-        background 0.1s ease;
-}
-
 kbd {
     color: var(--bg-color);
     background-color: var(--text-color);
-    border-radius: .25em;
-    padding: .2em .4em;
-    font-size: .75em;
+    border-radius: 0.25em;
+    padding: 0.2em 0.4em;
+    font-size: 0.75em;
 }
 
 .mobile-settings-group {
@@ -535,18 +525,14 @@ kbd {
     max-height: min(86svh, 760px);
     box-sizing: border-box;
     overflow-y: auto;
-
     padding: 18px;
     border-radius: 28px;
-
     background: var(--surface-color);
     color: var(--surface-text-color);
     box-shadow: 0 0 0 0.2em var(--bg-alt-color);
-
     display: flex;
     flex-direction: column;
     gap: 18px;
-
     transform: scale(0.96);
     opacity: 0;
     transition:
@@ -584,7 +570,7 @@ kbd {
     color: var(--surface-text-color);
     opacity: 0.8;
     cursor: pointer;
-    transition: 
+    transition:
         opacity 0.1s ease,
         color 0.1s ease;
 }
@@ -598,6 +584,13 @@ kbd {
     display: flex;
     flex-direction: column;
     gap: 18px;
+}
+
+.settings-switch {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
 .settings-section {
@@ -633,18 +626,15 @@ kbd {
     border: 0;
     border-radius: 18px;
     padding: 18px 16px;
-
     background: color-mix(in srgb, var(--surface-text-color) 6%, transparent);
     color: var(--surface-text-color);
-
     font: inherit;
     font-size: 1.1rem;
     font-weight: 500;
     line-height: 1.1;
     text-align: center;
-
     cursor: pointer;
-    transition: 
+    transition:
         background 0.1s ease,
         color 0.1s ease,
         opacity 0.1s ease;
@@ -657,76 +647,4 @@ kbd {
 .settings-option.is-active {
     background: var(--accent-color);
     color: var(--bg-color);
-}
-
-.settings-switch {
-    display: flex;
-    gap: 10px;
-}
-
-.settings-tab {
-    appearance: none;
-    flex: 1;
-    border: 0;
-    border-radius: 16px;
-    padding: 14px 12px;
-
-    background: color-mix(in srgb, var(--surface-text-color) 6%, transparent);
-    color: var(--surface-text-color);
-
-    font: inherit;
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
-
-    cursor: pointer;
-    transition:
-        background 0.1s ease,
-        color 0.1s ease,
-        opacity 0.1s ease;
-}
-
-.settings-tab:hover {
-    background: color-mix(in srgb, var(--surface-text-color) 10%, transparent);
-}
-
-.settings-tab.is-active {
-    background: var(--accent-color);
-    color: var(--bg-color);
-}
-
-.settings-group-switcher {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.settings-group-switcher .control-option {
-    width: 100%;
-    justify-content: center;
-    padding: 18px 16px;
-    border-radius: 18px;
-    background: color-mix(in srgb, var(--surface-text-color) 5%, transparent);
-    color: var(--surface-text-color);
-    opacity: 1;
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.1;
-}
-
-.settings-group-switcher .control-option:hover {
-    background: color-mix(in srgb, var(--surface-text-color) 10%, transparent);
-    color: var(--surface-text-color);
-}
-
-.settings-group-switcher .control-option.is-active {
-    background: var(--accent-color);
-    color: var(--bg-color);
-}
-
-.settings-switch {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 12px;
 }
