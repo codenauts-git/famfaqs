@@ -118,9 +118,7 @@ const Carousel = {
   setSpeed(speed) {
     const map = {
       slow: 1.5,
-
       normal: 1,
-
       fast: 0.5,
     };
 
@@ -212,6 +210,8 @@ const Carousel = {
       const modeButton = event.target.closest("[data-mode]");
       const settingsToggle = event.target.closest("#settings-toggle");
       const settingsClose = event.target.closest("#settings-close");
+      const settingsModal = event.target.closest("#settings-modal");
+      const settingsPanel = event.target.closest(".settings-modal-panel");
       const themeToggle = event.target.closest("#theme-toggle");
       const themeButton = event.target.closest("[data-theme]");
       const modalPanel = event.target.closest(".theme-modal-panel");
@@ -230,6 +230,16 @@ const Carousel = {
 
       if (settingsToggle) return this.openSettingsModal();
       if (settingsClose) return this.closeSettingsModal();
+
+      // close when clicking outside settings panel
+      if (
+        this.elements.settingsModal &&
+        !this.elements.settingsModal.hidden &&
+        settingsModal &&
+        !settingsPanel
+      ) {
+        return this.closeSettingsModal();
+      }
 
       if (githubLink) return;
 
