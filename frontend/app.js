@@ -586,6 +586,7 @@ const Carousel = {
     const item = this.getNextItem();
     if (!item || !this.elements.item) return;
 
+    // update history
     this.state.history = this.state.history.slice(
       0,
       this.state.historyIndex + 1,
@@ -596,12 +597,15 @@ const Carousel = {
     const el = this.elements.item;
     const duration = this.config.fadeDurationMs;
 
+    // INSTANT mode
     if (this.state.mode === "instant") {
       el.textContent = item.text;
-      return;
+      el.style.opacity = "1";
+      el.style.filter = "blur(0px)";
     }
 
-    if (this.state.mode === "fade") {
+    // FADE mode
+    else if (this.state.mode === "fade") {
       el.style.transition = `opacity ${duration}ms ease, filter ${duration}ms ease`;
       el.style.opacity = "0";
       el.style.filter = "blur(1px)";
@@ -613,17 +617,15 @@ const Carousel = {
       }, duration);
     }
 
-    setTimeout(() => {
-      el.textContent = item.text;
+    // TYPING mode
+    else if (this.state.mode === "typing") {
+      this.typeItem?.(item.text); // safe call for now
+    }
 
-      el.style.transition = `opacity ${duration}ms ease, filter ${duration}ms ease`;
-      el.style.opacity = "1";
-      el.style.filter = "blur(0px)";
-
-      this.state.lastItemId = item.id;
-      this.rememberItem(item.id);
-      this.rememberType(item.type);
-    }, duration);
+    // update state ONCE
+    this.state.lastItemId = item.id;
+    this.rememberItem(item.id);
+    this.rememberType(item.type);
   },
 
   goToPreviousItem() {
