@@ -63,6 +63,8 @@ const Carousel = {
       empty: "No content available.",
       error: "Could not load content.",
     },
+    typingCharMs: 22,
+    typingStartDelayMs: 80,
     settingsGroups: {
       mode: [
         { label: "instant", value: "instant", attr: "data-mode" },
@@ -89,6 +91,8 @@ const Carousel = {
     speedMultiplier: 1,
     mode: "fade",
     activeSettingsGroup: "mode",
+    typingTimer: null,
+    isTyping: false,
     touch: {
       startX: 0,
       endX: 0,
@@ -132,6 +136,50 @@ const Carousel = {
     const saved = localStorage.getItem("Carousel-speed") || "normal";
 
     this.setSpeed(saved);
+  },
+
+  clearTypingTimer() {
+    if (this.state.typingTimer) {
+      clearTimeout(this.state.typingTimer);
+      this.state.typingTimer = null;
+    }
+
+    this.state.isTyping = false;
+  },
+
+  typeItem(text) {
+    const el = this.elements.item;
+    if (!el) return;
+
+    this.clearTypingTimer();
+
+    this.state.isTyping = true;
+
+    el.textContent = "";
+    el.style.opacity = "1";
+    el.style.filter = "blur(0px)";
+    el.style.transform = "scale(1)";
+
+    let index = 0;
+
+    const typeNext = () => {
+      if (!this.state.isTyping) return;
+
+      el.textContent = text.slice(0, index);
+      index += 1;
+
+      if (index <= text.length) {
+        this.state.typingTimer = setTimeout(typeNext, this.config.typingCharMs);
+      } else {
+        this.state.isTyping = false;
+        this.state.typingTimer = null;
+      }
+    };
+
+    this.state.typingTimer = setTimeout(
+      typeNext,
+      this.config.typingStartDelayMs,
+    );
   },
 
   setSpeed(speed) {
@@ -658,6 +706,8 @@ const Carousel = {
     const el = this.elements.item;
     const duration = this.config.fadeDurationMs;
 
+    this.clearTypingTimer();
+
     // INSTANT mode
     if (this.state.mode === "instant") {
       el.textContent = item.text;
@@ -680,7 +730,7 @@ const Carousel = {
 
     // TYPING mode
     else if (this.state.mode === "typing") {
-      this.typeItem?.(item.text); // safe call for now
+      this.typeItem(item.text);
     }
 
     // POP mode
@@ -734,9 +784,12 @@ const Carousel = {
     const el = this.elements.item;
     if (!el) return;
 
+    this.clearTypingTimer();
+
     el.textContent = item.text;
     el.style.opacity = "1";
     el.style.filter = "blur(0px)";
+    el.style.transform = "scale(1)";
     this.state.lastItemId = item.id;
   },
 
@@ -767,7 +820,11 @@ const Carousel = {
     time += punctuation * 350;
     time += 3500;
 
-    return Math.min(Math.max(time, 7000), 14000);
+    if (this.state.mode === "typing") {
+      time += text.length * this.config.typingCharMs;
+    }
+
+    return Math.min(Math.max(time, 7000), 18000);
   },
 
   async loadNotifications() {
