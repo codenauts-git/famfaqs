@@ -626,8 +626,8 @@ kbd {
     border: 0;
     border-radius: 18px;
     padding: 18px 16px;
-    background: color-mix(in srgb, var(--surface-text-color) 6%, transparent);
-    color: var(--surface-text-color);
+    background: var(--bg-alt-color);
+    color: var(--sub-color);
     font: inherit;
     font-size: 1.1rem;
     font-weight: 500;
