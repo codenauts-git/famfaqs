@@ -694,3 +694,39 @@ kbd {
     background: var(--accent-color);
     color: var(--bg-color);
 }
+
+.settings-group-switcher {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settings-group-switcher .control-option {
+    width: 100%;
+    justify-content: center;
+    padding: 18px 16px;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--surface-text-color) 5%, transparent);
+    color: var(--surface-text-color);
+    opacity: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.1;
+}
+
+.settings-group-switcher .control-option:hover {
+    background: color-mix(in srgb, var(--surface-text-color) 10%, transparent);
+    color: var(--surface-text-color);
+}
+
+.settings-group-switcher .control-option.is-active {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.settings-switch {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
+}
