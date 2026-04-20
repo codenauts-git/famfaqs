@@ -65,9 +65,10 @@ const Carousel = {
     },
     settingsGroups: {
       mode: [
-        { label: "fade", value: "fade", attr: "data-mode" },
-        { label: "typing", value: "typing", attr: "data-mode" },
         { label: "instant", value: "instant", attr: "data-mode" },
+        { label: "fade", value: "fade", attr: "data-mode" },
+        { label: "pop", value: "pop", attr: "data-mode" },
+        { label: "typing", value: "typing", attr: "data-mode" },
       ],
       rate: [
         { label: "slow", value: "slow", attr: "data-speed" },
@@ -641,6 +642,27 @@ const Carousel = {
     // TYPING mode
     else if (this.state.mode === "typing") {
       this.typeItem?.(item.text); // safe call for now
+    }
+
+    // POP mode
+    else if (this.state.mode === "pop") {
+      const duration = 120;
+
+      el.style.transition = `transform ${duration}ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity ${duration}ms ease-out`;
+      el.style.transform = "scale(0.75)";
+      el.style.opacity = "0";
+
+      setTimeout(() => {
+        el.textContent = item.text;
+
+        el.style.transform = "scale(1.16)";
+        el.style.opacity = "1";
+
+        requestAnimationFrame(() => {
+          el.style.transition = `transform ${duration}ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity ${duration}ms ease-out`;
+          el.style.transform = "scale(1)";
+        });
+      }, duration);
     }
 
     // update state ONCE
