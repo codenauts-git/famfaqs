@@ -215,9 +215,16 @@ h1 {
 .drawer-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0);
     opacity: 0;
-    transition: opacity 0.1s ease;
+    transition: 
+        opacity 0.1s ease;
+        background 0.1s ease;
+}
+
+.drawer.is-open .drawer-overlay {
+    background: rgba(0, 0, 0, 0.69);
+    opacity: 1;
 }
 
 .drawer-panel {
