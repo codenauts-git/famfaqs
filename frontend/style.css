@@ -444,14 +444,6 @@ h1 {
         background 0.1s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .theme-option:hover {
-        background: var(--surface-hover-color);
-        color: var(--surface-text-color);
-        opacity: 1;
-    }
-}
-
 .theme-option.is-active {
     background: color-mix(in srgb, var(--surface-active-color) 90%, transparent);
     color: var(--surface-text-color);
@@ -650,12 +642,6 @@ kbd {
     color: var(--bg-color);
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .settings-option:hover {
-        background: color-mix(in srgb, var(--surface-text-color) 10%, transparent);
-    }
-}
-
 @media (max-width: 480px) {
     .desktop-controls {
         display: none;
@@ -715,19 +701,26 @@ kbd {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .control-option:hover {
-        color: var(--sub-color);
-        opacity: 1;
-    }
 
+    .control-option:hover,
     .top-row-button:hover {
-        opacity: 1;
         color: var(--sub-color);
+        opacity: 1;
     }
 
     .bottom-bar button:hover,
     .bottom-bar a:hover {
         color: var(--sub-color);
+    }
+
+    .theme-option:hover {
+        background: var(--surface-hover-color);
+        color: var(--surface-text-color);
+        opacity: 1;
+    }
+
+    .settings-option:hover {
+        background: color-mix(in srgb, var(--surface-text-color) 10%, transparent);
     }
 
     .settings-close-button:hover {
