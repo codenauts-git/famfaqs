@@ -658,3 +658,39 @@ kbd {
     background: var(--accent-color);
     color: var(--bg-color);
 }
+
+.settings-switch {
+    display: flex;
+    gap: 10px;
+}
+
+.settings-tab {
+    appearance: none;
+    flex: 1;
+    border: 0;
+    border-radius: 16px;
+    padding: 14px 12px;
+
+    background: color-mix(in srgb, var(--surface-text-color) 6%, transparent);
+    color: var(--surface-text-color);
+
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+
+    cursor: pointer;
+    transition:
+        background 0.1s ease,
+        color 0.1s ease,
+        opacity 0.1s ease;
+}
+
+.settings-tab:hover {
+    background: color-mix(in srgb, var(--surface-text-color) 10%, transparent);
+}
+
+.settings-tab.is-active {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}

@@ -187,6 +187,7 @@ const Carousel = {
     if (!modal) return;
 
     modal.hidden = false;
+    this.setSettingsGroup("mode");
 
     requestAnimationFrame(() => {
       modal.classList.add("is-open");
@@ -204,6 +205,67 @@ const Carousel = {
     }, 150);
   },
 
+  getCurrentSpeedKey() {
+    const speedMap = {
+      1.5: "slow",
+      1: "normal",
+      0.5: "fast",
+    };
+
+    return speedMap[this.state.speedMultiplier] || "normal";
+  },
+
+  renderSettingsOptions(group) {
+    const title = document.getElementById("settings-section-title");
+    const container = document.getElementById("settings-options");
+
+    if (!title || !container) return;
+
+    const options =
+      group === "mode"
+        ? [
+            { label: "fade", value: "fade", attr: "data-mode" },
+            { label: "typing", value: "typing", attr: "data-mode" },
+            { label: "instant", value: "instant", attr: "data-mode" },
+          ]
+        : [
+            { label: "slow", value: "slow", attr: "data-speed" },
+            { label: "normal", value: "normal", attr: "data-speed" },
+            { label: "fast", value: "fast", attr: "data-speed" },
+          ];
+
+    title.textContent = group === "mode" ? "Mode" : "Rate";
+
+    container.innerHTML = options
+      .map((option) => {
+        const isActive =
+          group === "mode"
+            ? this.state.mode === option.value
+            : this.getCurrentSpeedKey() === option.value;
+
+        return `
+          <button
+            type="button"
+            class="settings-option ${isActive ? "is-active" : ""}"
+            ${option.attr}="${option.value}">
+            ${option.label}
+          </button>
+        `;
+      })
+      .join("");
+  },
+
+  setSettingsGroup(group) {
+    document.querySelectorAll("[data-settings-group]").forEach((button) => {
+      button.classList.toggle(
+        "is-active",
+        button.dataset.settingsGroup === group,
+      );
+    });
+
+    this.renderSettingsOptions(group);
+  },
+
   bindEvents() {
     document.body.addEventListener("click", (event) => {
       const speedButton = event.target.closest("[data-speed]");
@@ -212,6 +274,7 @@ const Carousel = {
       const settingsClose = event.target.closest("#settings-close");
       const settingsModal = event.target.closest("#settings-modal");
       const settingsPanel = event.target.closest(".settings-modal-panel");
+      const settingsTab = event.target.closest("[data-settings-group]");
       const themeToggle = event.target.closest("#theme-toggle");
       const themeButton = event.target.closest("[data-theme]");
       const modalPanel = event.target.closest(".theme-modal-panel");
@@ -230,6 +293,11 @@ const Carousel = {
 
       if (settingsToggle) return this.openSettingsModal();
       if (settingsClose) return this.closeSettingsModal();
+
+      if (settingsTab) {
+        this.setSettingsGroup(settingsTab.dataset.settingsGroup);
+        return;
+      }
 
       // close when clicking outside settings panel
       if (

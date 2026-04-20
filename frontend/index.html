@@ -109,22 +109,14 @@
             </div>
     
             <div class="settings-modal-body">
+                <div class="settings-switch" role="group" aria-label="Settings group">
+                    <button class="control-option" data-settings-group="mode" type="button">mode</button>
+                    <button class="control-option is-active" data-settings-group="rate" type="button">rate</button>
+                </div>
+            
                 <section class="settings-section">
-                    <h4>Mode</h4>
-                    <div class="settings-options">
-                        <button type="button" class="settings-option is-active" data-mode="fade">fade</button>
-                        <button type="button" class="settings-option" data-mode="typing">typing</button>
-                        <button type="button" class="settings-option" data-mode="instant">instant</button>
-                    </div>
-                </section>
-    
-                <section class="settings-section">
-                    <h4>Rate</h4>
-                    <div class="settings-options">
-                        <button type="button" class="settings-option" data-speed="slow">slow</button>
-                        <button type="button" class="settings-option is-active" data-speed="normal">normal</button>
-                        <button type="button" class="settings-option" data-speed="fast">fast</button>
-                    </div>
+                    <h4 id="settings-section-title">Mode</h4>
+                    <div class="settings-options" id="settings-options"></div>
                 </section>
             </div>
         </div>
