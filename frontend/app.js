@@ -119,9 +119,6 @@ const Carousel = {
     this.elements.desktopSettingsOptions = document.getElementById(
       "desktop-settings-options",
     );
-    this.elements.settingsSectionTitle = document.getElementById(
-      "settings-section-title",
-    );
     this.elements.settingsOptions = document.getElementById("settings-options");
   },
 
@@ -298,27 +295,37 @@ const Carousel = {
   },
 
   renderSettingsOptions(group) {
-    const title = this.elements.settingsSectionTitle;
-    const container = this.elements.settingsOptions;
+    const container = document.getElementById("settings-options");
+    if (!container) return;
 
-    if (!title || !container) return;
-
-    const options = this.getSettingsOptions(group);
-
-    title.textContent = group === "mode" ? "Mode" : "Rate";
+    const options =
+      group === "mode"
+        ? [
+            { label: "fade", value: "fade", attr: "data-mode" },
+            { label: "typing", value: "typing", attr: "data-mode" },
+            { label: "instant", value: "instant", attr: "data-mode" },
+          ]
+        : [
+            { label: "slow", value: "slow", attr: "data-speed" },
+            { label: "normal", value: "normal", attr: "data-speed" },
+            { label: "fast", value: "fast", attr: "data-speed" },
+          ];
 
     container.innerHTML = options
       .map((option) => {
-        const isActive = this.isSettingsOptionActive(group, option.value);
+        const isActive =
+          group === "mode"
+            ? this.state.mode === option.value
+            : this.getCurrentSpeedKey() === option.value;
 
         return `
-        <button
-          type="button"
-          class="settings-option ${isActive ? "is-active" : ""}"
-          ${option.attr}="${option.value}">
-          ${option.label}
-        </button>
-      `;
+          <button
+            type="button"
+            class="settings-option ${isActive ? "is-active" : ""}"
+            ${option.attr}="${option.value}">
+            ${option.label}
+          </button>
+        `;
       })
       .join("");
   },
