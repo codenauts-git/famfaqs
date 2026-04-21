@@ -219,6 +219,9 @@ h1 {
 
 .bottom-bar button,
 .bottom-bar a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
     appearance: none;
     background: none;
     border: 0;
@@ -397,7 +400,6 @@ h1 {
 #theme-toggle {
     display: flex;
     align-items: center;
-    gap: 6px;
 }
 
 #theme-toggle i {
