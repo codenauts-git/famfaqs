@@ -93,7 +93,7 @@ h1 {
     line-height: 1.5;
     color: var(--text-color);
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: opacity .1s ease;
     filter: blur(0);
     white-space: pre-line;
 }
@@ -469,7 +469,7 @@ body.focus-mode {
     font-size: 0.8rem;
     opacity: 0.6;
     color: inherit;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.1s ease;
 }
 
 #theme-toggle:hover i {
