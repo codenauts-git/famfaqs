@@ -987,6 +987,17 @@ const Carousel = {
       if (isTyping) return;
 
       if (event.key === "Escape") {
+        if (document.body.classList.contains("focus-mode")) {
+          const btn = document.getElementById("focus-toggle");
+
+          document.body.classList.remove("focus-mode");
+          localStorage.setItem("focusMode", "false");
+
+          if (btn) this.updateFocusButton(btn, false);
+
+          return;
+        }
+
         this.closeThemeModal();
         this.closeDrawer();
         this.closeSettingsModal();
@@ -998,6 +1009,15 @@ const Carousel = {
         if (!this.state.items.length) return;
         this.showNextItem();
         this.resetRotationTimer();
+        return;
+      }
+
+      if (event.key.toLowerCase() === "f") {
+        event.preventDefault();
+
+        const btn = document.getElementById("focus-toggle");
+        if (btn) btn.click();
+
         return;
       }
 
